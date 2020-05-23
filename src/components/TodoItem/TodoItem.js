@@ -3,11 +3,7 @@ import TodoTitle from '../TodoTitle/TodoTitle';
 
 export default class TodoItem extends Component {
 
-
-
     render() {
-
-        console.log(this.props);
 
         const {id, index, title, edit} = this.props;
 
@@ -19,11 +15,11 @@ export default class TodoItem extends Component {
                     edit={edit}
                     changeTitle={this.props.changeTitle}
                 />
-                <button onClick={this.props.deleteTodo}>Удалить</button>
                 {   edit
-                    ? <button onClick={this.props.acceptEdit}>Принять</button>
-                    : <button onClick={this.props.editMode}>Edit</button>
+                    ? <button className="btn btn-success fa fa-check" onClick={this.props.acceptEdit}/>
+                    : <button className="btn btn-info fa fa-pencil" onClick={this.props.editMode}/>
                 }
+                <button className="btn btn-danger fa fa-trash" onClick={this.props.deleteTodo}/>
 
             </div>
         );

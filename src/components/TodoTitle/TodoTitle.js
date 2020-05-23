@@ -16,13 +16,3 @@ export default class TodoTitle extends Component {
         );
     }
 }
-
-// export default props => {
-//     console.log(props.edit);
-//
-//     return (
-//         <div style={{margin: '0 1rem'}}>
-//             {props.edit ? <EditInput/> : <div>{props.title}</div> }
-//         </div>
-//     );
-// }

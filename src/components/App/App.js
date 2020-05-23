@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoList from "../TodoList/TodoList";
+import AddTodoInput from "../AddTodoInput/AddTodoInput";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -11,7 +12,15 @@ export default class App extends Component {
             {id: 2, title: 'Купить чай', done: false, edit: false},
             {id: 3, title: 'Купить кофе', done: false, edit: false},
       ],
+      input: ''
     };
+
+    componentDidMount() {
+        const arr = [...this.state.todos];
+        this.initialIndex = arr[arr.length - 1].id + 1;
+
+        console.log(this.initialIndex);
+    }
 
     deleteTodo = (id) => {
         const todos = this.state.todos.filter(item => item.id !== id);
@@ -54,7 +63,6 @@ export default class App extends Component {
     }
 
     changeTitle = (title, index) => {
-        // console.log(title, index);
 
         const editInput = this.state.todos[index];
         editInput.title = title;
@@ -68,15 +76,55 @@ export default class App extends Component {
                todos
            }
         });
+    };
 
-        // editInput.title = title;
-    }
+    addInputChange = (value) => {
+        console.log(value);
+
+        this.setState({
+            input: value
+        });
+    };
+
+    newItem = (value) => {
+
+        const id = this.initialIndex++;
+
+        return {
+            id,
+            title: value,
+            done: false,
+            edit: false,
+        };
+    };
+
+    addInputClick = () => {
+        const todos = [...this.state.todos];
+
+        if (this.state.input) {
+
+            todos.push(this.newItem(this.state.input));
+
+            console.log(todos);
+
+            this.setState({
+                todos,
+                input: ''
+            });
+
+        }
+    };
 
     render() {
 
         return(
             <div className="app__wrapper">
                 <div className="alert alert-success">Hello world</div>
+                <AddTodoInput
+                    addInputChange={this.addInputChange}
+                    addInputClick={this.addInputClick}
+                    input={this.state.input}
+                />
                 <TodoList
                     todos={this.state.todos}
                     deleteTodo={this.deleteTodo}

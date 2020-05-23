@@ -2,7 +2,6 @@ import React from 'react';
 import TodoItem from "../TodoItem/TodoItem";
 
 export default props => {
-    console.log(props.deleteTodo);
 
     const todos = props.todos.map((el, index) => {
        return (
