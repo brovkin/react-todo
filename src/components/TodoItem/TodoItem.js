@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import TodoTitle from '../TodoTitle/TodoTitle';
+import './TodoItem.scss';
 
 export default class TodoItem extends Component {
 
     render() {
 
-        const {id, index, title, edit} = this.props;
+        const {id, index, title, edit, done} = this.props;
 
         return (
-            <div className="list-group-item d-flex">
+            <label className="todo__item list-group-item list-group-item-action d-flex">
+                <input type="checkbox" onChange={this.props.doneItem}/>
                 <strong>{index + 1}.</strong>
                 <TodoTitle
                     title={title}
                     edit={edit}
                     changeTitle={this.props.changeTitle}
+                    done={done}
                 />
                 {   edit
                     ? <button className="btn btn-success fa fa-check" onClick={this.props.acceptEdit}/>
@@ -21,7 +24,7 @@ export default class TodoItem extends Component {
                 }
                 <button className="btn btn-danger fa fa-trash" onClick={this.props.deleteTodo}/>
 
-            </div>
+            </label>
         );
 
     }

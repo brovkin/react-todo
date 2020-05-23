@@ -115,6 +115,23 @@ export default class App extends Component {
         }
     };
 
+    doneItem = (id) => {
+
+        const todos = [...this.state.todos];
+
+        const item = todos.find(item => item.id === id);
+
+        item.done = !item.done;
+
+
+
+        this.setState(state => {
+            return {
+                todos
+            }
+        });
+    }
+
     render() {
 
         return(
@@ -131,6 +148,7 @@ export default class App extends Component {
                     editMode={this.editMode}
                     changeTitle={this.changeTitle}
                     acceptEdit={this.acceptEdit}
+                    doneItem={this.doneItem}
                 />
             </div>
         );

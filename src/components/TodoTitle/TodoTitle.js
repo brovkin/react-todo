@@ -5,9 +5,12 @@ export default class TodoTitle extends Component {
 
     render() {
 
+
+        const textStyle = this.props.done ? {textDecoration: 'line-through'} : null;
+
         const renderTitle = this.props.edit ?
             <EditInput changeTitle={this.props.changeTitle} title={this.props.title}/> :
-            <div>{this.props.title}</div>;
+            <div style={textStyle}>{this.props.title}</div>;
 
         return (
             <div style={{margin: '0 1rem'}}>

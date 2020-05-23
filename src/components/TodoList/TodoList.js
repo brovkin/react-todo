@@ -11,10 +11,12 @@ export default props => {
             title={el.title}
             id={el.id}
             edit={el.edit}
+            done={el.done}
             deleteTodo={() => props.deleteTodo(el.id)}
             editMode={() => props.editMode(el.id)}
             changeTitle={(event) => props.changeTitle(event.target.value, index)}
             acceptEdit={() => props.acceptEdit(index)}
+            doneItem={() => props.doneItem(el.id)}
            />
        );
     });
