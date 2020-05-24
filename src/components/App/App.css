@@ -1,4 +1,16 @@
 .app__wrapper {
-    width: 30%;
+    width: 40%;
     margin: 0 auto;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    background: rgba(118, 65, 52, 0.2);
+}
+
+.app__title-block {
+    display: flex;
+    align-items: center;
+}
+
+.app__title {
+    margin-right: 1rem;
 }

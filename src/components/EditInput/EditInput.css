@@ -1,0 +1,7 @@
+.edit-input {
+
+}
+
+.edit-input:focus {
+    box-shadow: none !important;
+}

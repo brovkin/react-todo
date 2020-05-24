@@ -1,0 +1,30 @@
+.todo__item-checkbox-wrapper {
+    border: 1px solid rgba(0,0,0, 0.3);
+    border-radius: 3px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo__item-checkbox:before {
+    content: '✓';
+    background-color: #fff;
+    display: flex;
+    width: 15px;
+    height: 15px;
+    align-items: center;
+    justify-content: center;
+    color: #28A645;
+    opacity: 0;
+    transition: .2s all ease-in-out;
+}
+
+.todo__item-real-checkbox {
+    display: none;
+}
+
+.todo__item-real-checkbox:checked ~ .todo__item-checkbox:before {
+    opacity: 1;
+}

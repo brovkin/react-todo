@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoItem from "../TodoItem/TodoItem";
+import EmptyList from '../EmptyList/EmptyList';
 
 export default props => {
 
@@ -17,13 +18,21 @@ export default props => {
             changeTitle={(event) => props.changeTitle(event.target.value, index)}
             acceptEdit={() => props.acceptEdit(index)}
             doneItem={() => props.doneItem(el.id)}
+            enterPressed={(event) => props.enterPressed(event, index)}
            />
        );
     });
 
+    const noItems = (todos) => {
+
+        return todos.length === 0 ? <EmptyList/> : null;
+
+    };
+
     return (
         <div className="list-group">
             {todos}
+            {noItems(todos)}
         </div>
     );
 }

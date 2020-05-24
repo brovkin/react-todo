@@ -1,0 +1,11 @@
+.title-block {
+
+}
+
+.title-block__title {
+    overflow-wrap: anywhere;
+}
+
+.title-block__index {
+    margin-right: 0.5rem;
+}

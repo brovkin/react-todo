@@ -79,7 +79,6 @@ export default class App extends Component {
     };
 
     addInputChange = (value) => {
-        console.log(value);
 
         this.setState({
             input: value
@@ -132,14 +131,32 @@ export default class App extends Component {
         });
     }
 
+    enterPressed = (event, index) => {
+
+        if (event.key === 'Enter') {
+            this.acceptEdit(index);
+        }
+
+    }
+
+    addTodoEnterPressed = (event) => {
+        if (event.key === 'Enter') {
+            this.addInputClick();
+        }
+    }
+
     render() {
 
         return(
             <div className="app__wrapper">
-                <div className="alert alert-success">Hello world</div>
+                <div className="app__title-block">
+                    <h2 className="app__title">Todo app</h2>
+                    <small className="app__subtitle">via React</small>
+                </div>
                 <AddTodoInput
                     addInputChange={this.addInputChange}
                     addInputClick={this.addInputClick}
+                    addTodoEnterPressed={this.addTodoEnterPressed}
                     input={this.state.input}
                 />
                 <TodoList
@@ -149,6 +166,7 @@ export default class App extends Component {
                     changeTitle={this.changeTitle}
                     acceptEdit={this.acceptEdit}
                     doneItem={this.doneItem}
+                    enterPressed={this.enterPressed}
                 />
             </div>
         );

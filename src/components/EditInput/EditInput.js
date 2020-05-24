@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './EditInput.css';
 
 export default class EditInput extends Component {
 
@@ -9,19 +10,18 @@ export default class EditInput extends Component {
     }
 
     componentDidMount() {
-
         this.selectAll.current.select();
     }
 
     render() {
         return (
-            <div>
                 <input
+                    className="edit-input form-control"
                     ref={this.selectAll}
                     type="text"
                     onChange={this.props.changeTitle}
+                    onKeyPress={this.props.enterPressed}
                     value={this.props.title}/>
-            </div>
         );
     }
 
